@@ -62,7 +62,7 @@ function fncGetUserList(currentPage){
 
 <div style="width:98%; margin-left:10px;">
 
-<form name="detailForm" action="/listProduct.do" method="post">
+<form name="detailForm" action="/product/listProduct" method="post">
 <input name="menu" value="manage" type="hidden"/>
 <table width="100%" height="37" border="0" cellpadding="0"	cellspacing="0">
 	<tr>
@@ -221,7 +221,7 @@ function fncGetUserList(currentPage){
 	<td></td>
 	<td align="left">
 
-		<a href="/updateProductView.do?prodNo=${ product.prodNo}">${product.prodName} </a>
+		<a href="/product/updateProductView?prodNo=${ product.prodNo}">${product.prodName} </a>
 
 		</td>
 		<td></td>
@@ -236,7 +236,7 @@ function fncGetUserList(currentPage){
 		
 		
 	
-		 <c:if test="${product.proTranCode.trim() == '1' }">구매완료 <a href="/updateTranCodeByProd.do?prodNo=${product.prodNo }&tranCode=${product.proTranCode.trim()}&menu=manage">배송하기</a> </c:if>
+		 <c:if test="${product.proTranCode.trim() == '1' }">구매완료 <a href="/purchase/updateTranCodeByProd?prodNo=${product.prodNo }&tranCode=${product.proTranCode.trim()}&menu=manage">배송하기</a> </c:if>
 		  <c:if test="${product.proTranCode.trim() == '2' }">배송중 </c:if>
 		  <c:if test="${product.proTranCode.trim() == '3' }">배송완료 </c:if>
 		</td>
