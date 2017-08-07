@@ -93,9 +93,10 @@
 	<select id="getPurchaseList" parameterType="map" resultMap="purchaseSelectMap">
 		SELECT *
 		FROM ( SELECT inner_table.*, ROWNUM AS row_seq
-		FROM (SELECT p.prod_name, t.* FROM product p, transaction t WHERE p.prod_no = t.prod_no) inner_table
+		FROM (SELECT p.prod_name, t.* FROM product p, transaction t WHERE p.prod_no = t.prod_no ORDER BY tran_No ASC) inner_table
 		WHERE ROWNUM &lt;= #{search.endRowNum})
 		WHERE row_seq BETWEEN #{search.startRowNum} AND #{search.endRowNum}
+		
 
 	</select>
 
